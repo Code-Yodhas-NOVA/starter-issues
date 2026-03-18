@@ -1,4 +1,4 @@
-# 📖 N.O.V.A. - Networked Onboarding Virtual Assistant
+# 🚀 N.O.V.A. - Networked Onboarding Virtual Assistant
 
 **Organization:** Code Yodha Technologies  
 **Repository:** Code-Yodha-NOVA/nova-system  
@@ -7,83 +7,62 @@
 
 ---
 
-## 🎯 Overview
+## 📋 Overview
 
-**N.O.V.A.** is an intelligent **AI-powered developer onboarding platform** that transforms how new developers join and integrate into your team. Instead of switching between tools, asking in Slack, and searching documentation, developers get everything they need in one unified workspace.
+N.O.V.A. is an intelligent **AI-powered developer onboarding platform** that transforms how new developers join and integrate into teams. It provides personalized guidance, knowledge management, and collaborative features all in one unified workspace.
 
-### What Problems Does It Solve?
-
-```
-❌ WITHOUT N.O.V.A.:
-- New dev joins → confused about setup
-- Asks 5 people same question → wasted time
-- Searches documentation → outdated info
-- Creates wrong issue → context confusion
-- Onboarding takes 2-3 weeks
-
-✅ WITH N.O.V.A.:
-- New dev opens app → guided onboarding
-- Asks Nova → instant, personalized answer
-- Smart knowledge base → always up-to-date
-- Creates issue in chat → syncs with GitHub
-- Onboarding takes 3-4 days
-```
+**Core Mission:** Reduce developer onboarding time from 2-3 weeks to 3-4 days through intelligent AI assistance and centralized knowledge management.
 
 ---
 
 ## ⭐ Key Features
 
-### 1. 🤖 Nova - AI Chatbot
-Intelligent assistant that understands context and helps developers:
-- Answer onboarding questions
-- Fetch project README
-- Create GitHub issues
-- Search knowledge base
-- Provide code examples
-
-**Try asking Nova:**
-- "Show me the project README"
-- "How do I set up the environment?"
-- "Create an issue: Bug in login form"
-- "What's our API design pattern?"
+### 1. 🤖 Nova Chatbot
+- Intelligent AI assistant powered by Groq LLM
+- Answers onboarding questions with context awareness
+- Fetches project README directly from GitHub
+- Creates GitHub issues from chat
+- Searches knowledge base for answers
+- Multi-turn conversations
 
 ### 2. 📚 Knowledge Base
-3-tier knowledge management system:
-- **Tier 1 (Public):** FAQs, Getting Started, Best Practices
-- **Tier 2 (Internal):** Developer Personas, Checklists, Guidelines
-- **Tier 3 (Templates):** Email templates, Document templates, Code snippets
-
-Powered by **RAG** (Retrieval-Augmented Generation) for accurate, contextual answers.
+- 3-tier knowledge management system
+- RAG (Retrieval-Augmented Generation) powered
+- Full-text search capability
+- Internal documentation library
+- Searchable templates and examples
+- Always up-to-date information
 
 ### 3. 🛣️ My Path - Personalized Onboarding
-Smart onboarding journey tailored to each developer:
-- **Persona Detection:** Backend, Frontend, DevOps, etc.
-- **Custom Checklist:** Role-specific tasks
-- **Progress Tracking:** See what you've completed
-- **Adaptive Guidance:** Get help when you need it
+- AI-detects developer persona (Backend/Frontend/DevOps/etc)
+- Custom checklist based on role
+- Step-by-step guidance
+- Progress tracking dashboard
+- Adaptive learning paths
+- Milestone celebrations
 
 ### 4. 💬 Team Forum
-Discussion platform for developers to:
-- Ask questions about implementation
-- Share solutions to common problems
-- Build institutional knowledge
-- Get help from teammates
+- Discussion platform for developers
+- Create discussion threads about challenges
+- Get solutions from teammates
 - Upvote helpful answers
+- Build searchable knowledge base
+- Category organization (Setup, Debugging, Architecture, Tools, Best Practices)
 
 ### 5. 🔗 GitHub Integration
-Direct integration with your GitHub organization:
+- Fetch repository README in chat
 - View open issues and pull requests
-- **Create issues directly from chat**
-- **Fetch README and documentation**
+- Create GitHub issues directly from N.O.V.A.
 - Track project progress
 - Monitor team activity
+- Real-time GitHub data sync
 
 ### 6. 📊 Progress Dashboard
-Visual onboarding metrics:
-- Completed vs. total checklist items
+- Onboarding completion percentage
 - Time spent on each section
-- Resources accessed
-- Knowledge gained
+- Resources accessed count
+- Knowledge gained metrics
+- Next steps recommendations
 
 ---
 
@@ -92,189 +71,181 @@ Visual onboarding metrics:
 ### Prerequisites
 
 ```
-Python:     3.9 or higher
-Node.js:    16.0 or higher
-GitHub:     Personal access token
-API Keys:   Groq API, (Optional: SMTP, Jira)
+✓ Python 3.9 or higher
+✓ Node.js 16 or higher  
+✓ GitHub personal access token
+✓ Groq API key (for LLM features)
+✓ Git
 ```
 
-### Installation (5 minutes)
+### Installation
 
-#### Backend Setup
+#### 1. Backend Setup
 
 ```bash
-# 1. Navigate to backend
-cd nova-onboarding/backend
+# Clone repository
+git clone https://github.com/Code-Yodha-NOVA/nova-system.git
+cd nova-system/backend
 
-# 2. Create virtual environment
+# Create virtual environment
 python -m venv .venv
 
-# 3. Activate virtual environment
+# Activate virtual environment
 # On macOS/Linux:
 source .venv/bin/activate
 
 # On Windows:
 .venv\Scripts\activate
 
-# 4. Install dependencies
+# Install dependencies
 pip install -r requirements.txt
 
-# 5. Create .env file
+# Create .env file with your credentials
 cat > .env << EOF
-GITHUB_TOKEN=ghp_your_token_here
+GITHUB_TOKEN=ghp_your_github_token_here
 GITHUB_ORG=Code-Yodha-NOVA
 GITHUB_REPO=nova-system
-GROQ_API_KEY=gsk_your_key_here
+GROQ_API_KEY=gsk_your_groq_key_here
 EOF
 
-# 6. Start backend server
+# Start the backend server
 python main.py
-# Server runs at: http://localhost:8000
+# Server will run on http://localhost:8000
 ```
 
-#### Frontend Setup
+#### 2. Frontend Setup
 
 ```bash
-# 1. Navigate to frontend
-cd nova-onboarding/frontend
+# Navigate to frontend
+cd ../frontend
 
-# 2. Install dependencies
+# Install dependencies
 npm install
 
-# 3. Start development server
+# Start development server
 npm run dev
-# Frontend runs at: http://localhost:3000
+# Frontend will run on http://localhost:3000
 ```
 
-#### Access the Application
+#### 3. Access the Application
 
 ```
-Open browser: http://localhost:3000
-Start onboarding now! 🚀
+Open your browser: http://localhost:3000
+Start your onboarding journey! 🚀
 ```
 
 ---
 
 ## 🏗️ Architecture
 
-### System Design
+### System Overview
 
 ```
 ┌─────────────────────────┐
-│    User Browser         │
-│   (localhost:3000)      │
-│                         │
-│  ┌─────────────────┐   │
-│  │   React App     │   │
-│  │  - Chat UI      │   │
-│  │  - Forum        │   │
-│  │  - My Path      │   │
-│  │  - Knowledge    │   │
-│  └────────┬────────┘   │
-└───────────┼─────────────┘
-            │ HTTP/REST
-            │ JSON
-            ▼
-┌─────────────────────────┐
-│  FastAPI Backend        │
-│ (localhost:8000)        │
-│                         │
-│  Routes:                │
-│  ├─ /api/chat          │
-│  ├─ /api/forum         │
-│  ├─ /api/github        │
-│  ├─ /api/search        │
-│  └─ /api/knowledge     │
-└────┬────────┬────────┬──┘
-     │        │        │
-     ▼        ▼        ▼
-  Groq API  GitHub  ChromaDB
-  (LLM)     (API)   (Vector)
+│    Frontend (React)     │
+│   localhost:3000        │
+└────────────┬────────────┘
+             │ HTTP/REST
+             │
+┌────────────▼─────────────┐
+│  Backend (FastAPI)       │
+│  localhost:8000          │
+└───┬────────┬────────┬────┘
+    │        │        │
+    ▼        ▼        ▼
+  Groq    GitHub   ChromaDB
+ (LLM)    (API)    (Vector)
 ```
 
-### Tech Stack
+### Technology Stack
 
 **Frontend:**
-- ✅ Next.js 14 (Framework)
-- ✅ React 18 (UI Library)
-- ✅ TypeScript (Type Safety)
-- ✅ Tailwind CSS (Styling)
-- ✅ Lucide React (Icons)
+- Next.js 14 - React framework with file-based routing
+- React 18 - UI component library
+- TypeScript - Type-safe JavaScript
+- Tailwind CSS - Utility-first CSS framework
+- Lucide React - Beautiful icon library
 
 **Backend:**
-- ✅ FastAPI (Web Framework)
-- ✅ Python 3.9+ (Language)
-- ✅ Pydantic (Validation)
-- ✅ Uvicorn (ASGI Server)
-- ✅ PyGithub (GitHub API)
+- FastAPI - Modern Python web framework
+- Python 3.9+ - Programming language
+- Pydantic - Data validation library
+- PyGithub - GitHub API client
+- Uvicorn - ASGI application server
 
 **AI/ML:**
-- ✅ Groq API (LLM)
-- ✅ LangGraph (Agent Orchestration)
-- ✅ ChromaDB (Vector Database)
-- ✅ Sentence Transformers (Embeddings)
+- Groq API - Large Language Model (LLM) inference
+- LangGraph - Agent orchestration framework
+- ChromaDB - Vector database for embeddings
+- Sentence Transformers - Text embedding model
 
-**Integrations:**
-- ✅ GitHub API (Issues, PRs, README)
-- ✅ SMTP (Email)
-- ✅ Jira (Issue Tracking)
-- ✅ Slack (Notifications)
-
-**Database (Production):**
-- ✅ PostgreSQL (Persistent Data)
-- ✅ Redis (Caching)
+**Integration:**
+- GitHub API - Repository and issue management
+- SMTP - Email notifications
+- Jira - Project tracking (optional)
+- Slack - Workspace notifications (optional)
 
 ---
 
-## 💻 How to Use
+## 💻 Usage Examples
 
-### Chat with Nova
-
-**Example: Fetch README**
+### Ask Nova About the Project
 
 ```
-You:   "Show me the README"
-Nova:  [Fetches from GitHub]
-       [Displays formatted content]
-       [Shows key sections]
-       ✅ Done!
+You: "Show me the README"
+
+Nova: 📖 Project README
+      ▼ Overview
+      ▼ Key Features  
+      ▼ Quick Start
+      ▼ Architecture
+      ▼ API Endpoints
+      ▼ Troubleshooting
+
+(Click to expand any section)
 ```
 
-**Example: Create Issue**
+### Get Onboarding Guidance
 
 ```
-You:   "Create issue: Add authentication to API"
-Nova:  [Creates GitHub issue]
-       [Returns issue #123]
-       [Shows confirmation]
-       ✅ Issue created!
+You: "How do I get started?"
+
+Nova: Based on your role, here's your personalized checklist:
+      ✓ Clone repository
+      ✓ Set up environment
+      ✓ Run tests
+      ✓ Read architecture docs
+      ✓ Set up local database
+      
+      You've completed 2/5 tasks (40%)
 ```
 
-**Example: Ask Question**
+### Create a GitHub Issue
 
 ```
-You:   "How do I run tests?"
-Nova:  [Searches knowledge base]
-       [Retrieves relevant docs]
-       [Provides step-by-step answer]
-       ✅ Question answered!
+You: "Create issue: Add authentication to API"
+
+Nova: ✅ Issue #145 created!
+      
+      Title: Add authentication to API
+      Status: Open
+      Labels: enhancement
+      
+      View on GitHub: [link]
 ```
 
-### Start Your Onboarding Path
+### Ask the Team Forum
 
-1. Open "My Path" tab
-2. Nova detects your role (Backend/Frontend/DevOps)
-3. Get personalized checklist
-4. Complete tasks in order
-5. Track progress with dashboard
+```
+You: "How do I set up PostgreSQL?"
 
-### Join Team Forum
-
-1. Find relevant discussions
-2. Read solutions to common problems
-3. Ask your own questions
-4. Upvote helpful answers
-5. Build knowledge together
+Nova: Found similar discussions:
+      
+      • PostgreSQL Setup (by Vikram) - 12 upvotes
+      • Database Configuration Guide (by Sofia) - 8 upvotes
+      
+      Create new thread or view existing?
+```
 
 ---
 
@@ -282,7 +253,6 @@ Nova:  [Searches knowledge base]
 
 ### Chat API
 
-**Send Message to Nova**
 ```http
 POST /api/chat/message
 Content-Type: application/json
@@ -293,168 +263,97 @@ Content-Type: application/json
 
 Response:
 {
-  "type": "github_response",
-  "data": {
-    "type": "readme",
-    "content": "# N.O.V.A...",
-    "sections": [...]
-  }
-}
-```
-
-**Create Issue from Chat**
-```http
-POST /api/chat/create-issue
-Content-Type: application/json
-
-{
-  "title": "Add authentication",
-  "description": "Implement JWT-based auth"
-}
-
-Response:
-{
-  "type": "issue_created",
-  "issue_id": 123,
-  "url": "https://github.com/Code-Yodha-NOVA/nova-system/issues/123"
+  "type": "readme",
+  "title": "📖 Project README",
+  "content": "# N.O.V.A...",
+  "sections": [...]
 }
 ```
 
 ### GitHub API
 
-**Fetch README**
 ```http
 GET /api/github/readme
+→ Fetch repository README
 
-Response:
-{
-  "name": "README.md",
-  "content": "# N.O.V.A...",
-  "sections": [
-    {"title": "Overview", "content": "..."},
-    {"title": "Quick Start", "content": "..."}
-  ],
-  "last_updated": "2026-03-18T10:30:00Z"
-}
-```
-
-**List Issues**
-```http
 GET /api/github/issues?state=open
+→ List open issues
 
-Response:
-{
-  "state": "open",
-  "count": 5,
-  "issues": [
-    {
-      "id": 1,
-      "title": "Setup PostgreSQL",
-      "state": "open",
-      "author": "vikram",
-      "labels": ["database"]
-    }
-  ]
-}
-```
-
-**Create Issue**
-```http
 POST /api/github/issues
-Content-Type: application/json
+→ Create new issue
 
-{
-  "title": "Feature request",
-  "description": "Please add X",
-  "labels": ["enhancement"],
-  "assignees": ["vikram"]
-}
-
-Response:
-{
-  "id": 126,
-  "title": "Feature request",
-  "url": "https://github.com/Code-Yodha-NOVA/nova-system/issues/126"
-}
-```
-
-**List Pull Requests**
-```http
 GET /api/github/pull-requests
-
-Response:
-{
-  "count": 3,
-  "pull_requests": [
-    {
-      "id": 45,
-      "title": "Fix forum search",
-      "state": "open",
-      "author": "maya",
-      "additions": 156,
-      "deletions": 42
-    }
-  ]
-}
+→ List pull requests
 ```
 
 ### Forum API
 
-**Get Threads**
 ```http
-GET /api/forum/threads?category=Setup
+GET /api/forum/threads
+→ Get discussion threads
 
-Response:
-{
-  "count": 5,
-  "threads": [
-    {
-      "id": "thread_001",
-      "title": "PostgreSQL Connection Issues",
-      "author": "vikram",
-      "upvotes": 12,
-      "comments_count": 4
-    }
-  ]
-}
-```
-
-**Create Thread**
-```http
 POST /api/forum/threads
-Content-Type: application/json
+→ Create thread
 
-{
-  "title": "How to set up Redis?",
-  "content": "I'm confused about...",
-  "category": "Setup"
-}
+POST /api/forum/threads/{id}/comments
+→ Add comment
 
-Response:
-{
-  "id": "thread_123",
-  "title": "How to set up Redis?",
-  "url": "http://localhost:3000/forum/thread_123"
-}
+POST /api/forum/threads/{id}/vote
+→ Upvote/downvote thread
 ```
 
-### Knowledge Base API
+### Search API
 
-**Search Documentation**
 ```http
 GET /api/search?q=authentication
+→ Search knowledge base
 
-Response:
-{
-  "results": [
-    {
-      "title": "JWT Authentication Guide",
-      "content": "...",
-      "relevance": 0.95
-    }
-  ]
-}
+GET /api/knowledge-base
+→ Get all resources
 ```
+
+---
+
+## 🧪 Features in Detail
+
+### Smart Persona Detection
+
+When you first open N.O.V.A., it asks about your role:
+- **Backend Developer** - Focus on APIs, databases, server logic
+- **Frontend Developer** - Focus on UI, components, styling
+- **DevOps Engineer** - Focus on deployment, CI/CD, infrastructure
+- **Product Manager** - Focus on features, requirements, roadmap
+- **Designer** - Focus on UI/UX, design systems, prototypes
+
+Based on your selection, you get a customized onboarding path.
+
+### Multi-Tier Knowledge Management
+
+**Tier 1: Public Knowledge**
+- FAQs and getting started guides
+- Best practices and conventions
+- General development guidelines
+- Public documentation
+
+**Tier 2: Internal Knowledge**  
+- Company-specific workflows
+- Team processes and standards
+- Project-specific architecture
+- Internal guidelines
+
+**Tier 3: Templates**
+- Email templates
+- Document templates
+- Code snippet templates
+- Issue templates
+
+### Real-time GitHub Integration
+
+- Fetches README from your GitHub repository
+- Creates issues that appear in GitHub
+- Shows live pull request status
+- Displays repository statistics
+- Links issues to forum discussions
 
 ---
 
@@ -462,28 +361,28 @@ Response:
 
 ### Environment Variables
 
-Create `.env` in backend directory:
+Create `.env` file in backend root:
 
 ```env
-# GitHub Integration
+# GitHub Integration (Required)
 GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxxxx
 GITHUB_ORG=Code-Yodha-NOVA
 GITHUB_REPO=nova-system
 
-# Groq AI
+# Groq AI (Required)
 GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxxxxxxx
 
-# Email (Optional)
+# SMTP Email (Optional)
 SMTP_SERVER=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USERNAME=your-email@gmail.com
 SMTP_PASSWORD=your-app-password
 
-# Database (Production)
-DATABASE_URL=postgresql://user:pass@localhost/nova_db
+# Database (Optional - Production)
+DATABASE_URL=postgresql://user:password@localhost:5432/nova_db
 REDIS_URL=redis://localhost:6379/0
 
-# Server
+# Server Settings
 SERVER_HOST=0.0.0.0
 SERVER_PORT=8000
 ENVIRONMENT=development
@@ -495,198 +394,180 @@ ENVIRONMENT=development
 
 1. Go to: https://github.com/settings/tokens
 2. Click "Generate new token (classic)"
-3. Name: `Nova Development`
+3. Name it: `Nova Development`
 4. Select scopes:
-   - ✅ `repo` (full control)
-   - ✅ `read:org` (read organization data)
-   - ✅ `read:user` (read user profile)
-5. Copy token and add to `.env`
+   - ✅ `repo` - Full control of private repositories
+   - ✅ `read:org` - Read organization data
+   - ✅ `read:user` - Read user profile data
+5. Generate and copy the token
+6. Paste into `.env`
 
 #### Groq API Key
 
-1. Go to: https://console.groq.com/keys
+1. Visit: https://console.groq.com/keys
 2. Click "Create API Key"
 3. Copy the key
-4. Add to `.env`
+4. Paste into `.env`
 
 ---
 
 ## 📁 Project Structure
 
 ```
-nova-onboarding/
+nova-system/
 │
-├── frontend/                          # React + Next.js
-│   └── src/
-│       ├── app/
-│       │   ├── chat/page.tsx         # Chat interface
-│       │   ├── my-path/page.tsx      # Onboarding journey
-│       │   ├── knowledge-base/page.tsx # Search & docs
-│       │   ├── forum/page.tsx        # Team discussions
-│       │   ├── github/page.tsx       # GitHub integration
-│       │   └── layout.tsx            # Root layout
-│       │
-│       ├── components/
-│       │   ├── SidebarLayout.tsx     # Navigation
-│       │   ├── ChatMessage.tsx       # Message display
-│       │   ├── ThreadCard.tsx        # Forum thread
-│       │   └── GitHubReadmeDisplay.tsx # README viewer
-│       │
-│       └── context/
-│           ├── ChatContext.tsx       # Chat state
-│           └── AuthContext.tsx       # Auth state
+├── frontend/                    # React + Next.js Frontend
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── chat/           # Chat interface
+│   │   │   ├── my-path/        # Onboarding journey
+│   │   │   ├── knowledge-base/  # Search & docs
+│   │   │   ├── forum/          # Team discussions
+│   │   │   ├── github/         # GitHub integration
+│   │   │   └── layout.tsx      # Root layout
+│   │   │
+│   │   ├── components/         # Reusable components
+│   │   │   ├── SidebarLayout.tsx
+│   │   │   ├── ChatMessage.tsx
+│   │   │   └── ...
+│   │   │
+│   │   └── context/            # React contexts
+│   │       ├── ChatContext.tsx
+│   │       └── AuthContext.tsx
+│   │
+│   └── package.json
 │
-├── backend/                           # FastAPI + Python
-│   ├── main.py                       # Entry point
+├── backend/                     # FastAPI Backend
+│   ├── main.py                 # Entry point
 │   │
-│   ├── agent/                        # LangGraph workflows
-│   │   ├── persona_agent.py         # Role detection
-│   │   ├── chat_agent.py            # Chat logic
-│   │   └── issue_creator.py         # Issue creation
+│   ├── agent/                  # AI Agent workflows
+│   │   ├── persona_agent.py   # Persona detection
+│   │   ├── chat_agent.py      # Chat logic
+│   │   └── issue_creator.py   # Issue creation
 │   │
-│   ├── routes/                       # API endpoints
-│   │   ├── chat_routes.py           # Chat API
-│   │   ├── forum_routes.py          # Forum API
-│   │   ├── github_routes.py         # GitHub API
-│   │   └── search_routes.py         # Search API
+│   ├── routes/                 # API endpoints
+│   │   ├── chat_routes.py
+│   │   ├── forum_routes.py
+│   │   ├── github_routes.py
+│   │   └── search_routes.py
 │   │
-│   ├── tools/                        # Utilities & services
-│   │   ├── github_service.py        # GitHub integration
-│   │   ├── chat_github_service.py   # Chat + GitHub
-│   │   └── embeddings.py            # Vector embeddings
+│   ├── tools/                  # Utilities
+│   │   ├── github_service.py
+│   │   ├── embeddings.py
+│   │   └── chat_handler.py
 │   │
-│   ├── models/                       # Data schemas
-│   │   ├── forum.py                 # Forum data
-│   │   ├── github.py                # GitHub data
-│   │   └── knowledge.py             # Knowledge data
+│   ├── models/                 # Data models
+│   │   ├── forum.py
+│   │   ├── github.py
+│   │   └── knowledge.py
 │   │
-│   └── data/                         # Knowledge files
-│       ├── faqs.json                # FAQ documents
-│       ├── guidelines.md            # Best practices
-│       └── templates/               # Document templates
+│   └── requirements.txt
 │
-└── docs/                              # Documentation
-    ├── SETUP.md                      # Setup guide
-    ├── ARCHITECTURE.md               # System design
-    └── API.md                        # API documentation
+├── docs/                        # Documentation
+│   ├── SETUP.md
+│   ├── ARCHITECTURE.md
+│   └── API.md
+│
+└── README.md
 ```
 
 ---
 
-## 🧪 Features Roadmap
+## 🗺️ Roadmap
 
-### Phase 1 (Current - March 2026)
-✅ **Core Onboarding**
-- Chatbot with LLM integration
-- Knowledge base with RAG
-- Forum for team discussions
-- GitHub issue creation
-- **README fetching from chat**
+### Phase 1 - Current (March 2026)
+✅ Chat interface with LLM  
+✅ Knowledge base with RAG  
+✅ My Path onboarding  
+✅ Team forum  
+✅ GitHub README fetching  
+✅ Issue creation from chat  
 
-### Phase 2 (April 2026)
-🔄 **Enhanced GitHub Integration**
-- Pull request previews
-- Code diff viewing
-- Branch management
-- Deployment tracking
-- Issue templates
+### Phase 2 - Next (April 2026)
+🔄 Pull request previews in chat  
+🔄 Code diff viewing  
+🔄 Database persistence (PostgreSQL)  
+🔄 User authentication  
+🔄 Email notifications  
 
-### Phase 3 (May 2026)
-📈 **Advanced Features**
-- GitHub Actions status
-- Advanced search (Elasticsearch)
-- Real-time notifications
-- Performance analytics
-- Mobile app (iOS/Android)
+### Phase 3 - Coming (May 2026)
+📈 GitHub Actions integration  
+📈 Advanced search (Elasticsearch)  
+📈 Real-time collaboration  
+📈 Performance analytics  
+📈 Mobile app (iOS/Android)  
 
-### Phase 4 (Q3 2026)
-🚀 **Enterprise Features**
-- Single sign-on (SSO)
-- Custom branding
-- Advanced permissions
-- Audit logs
-- SLA monitoring
+### Phase 4 - Future (Q3 2026)
+🚀 Enterprise SSO  
+🚀 Custom branding  
+🚀 Advanced permissions  
+🚀 Audit logs  
+🚀 API rate limiting  
 
 ---
 
 ## 🐛 Troubleshooting
 
-### Chat Not Responding
+### Backend Issues
 
-**Problem:** Nova doesn't respond to messages
-
-**Solutions:**
-1. Check backend is running: `http://localhost:8000`
-2. Check Groq API key is valid in `.env`
-3. Check browser console for errors (F12)
-4. Restart backend: `python main.py`
-
-### Cannot Fetch README
-
-**Problem:** "Show me the README" returns error
-
-**Solutions:**
-1. Verify GitHub token: `echo $GITHUB_TOKEN`
-2. Check token has `repo` scope
-3. Verify org name: `Code-Yodha-NOVA`
-4. Verify repo exists: `nova-system`
-5. Try mock data first: `USE_MOCK_DATA=True`
-
-### GitHub API 404 Errors
-
-**Problem:** GitHub endpoints return 404
-
-**Solutions:**
+**Problem: "ModuleNotFoundError"**
 ```bash
-# Check token is valid
-curl -H "Authorization: token ghp_xxx" https://api.github.com/user
-
-# Check org exists
-curl https://api.github.com/orgs/Code-Yodha-NOVA
-
-# Check repo exists
-curl https://api.github.com/repos/Code-Yodha-NOVA/nova-system
+Solution: Install dependencies
+pip install -r requirements.txt
 ```
 
-### Knowledge Base Returns No Results
+**Problem: "GitHub API 401 Unauthorized"**
+```bash
+Solution: Check GitHub token
+1. Verify token in .env
+2. Token must have 'repo' scope
+3. Regenerate if expired
+```
 
-**Problem:** Search returns empty results
+**Problem: "Cannot connect to Groq API"**
+```bash
+Solution: Check Groq API key
+1. Verify key in .env
+2. Key must start with 'gsk_'
+3. Check internet connection
+```
 
-**Solutions:**
-1. Check documents in `backend/data/`
-2. Re-index documents: `python -m tools.ingest`
-3. Check ChromaDB is running
-4. Verify embeddings model is downloaded
+### Frontend Issues
 
-### Dark Mode Not Working
+**Problem: "Cannot reach backend"**
+```bash
+Solution: Ensure both are running
+1. Backend: python main.py (on :8000)
+2. Frontend: npm run dev (on :3000)
+3. Check firewall settings
+```
 
-**Problem:** Dark mode toggle doesn't work
+**Problem: "Dark mode not working"**
+```bash
+Solution: Clear cache
+1. Press Ctrl+Shift+Delete
+2. Clear all cache
+3. Refresh page
+4. Restart npm dev server
+```
 
-**Solutions:**
-1. Clear browser cache: `Ctrl+Shift+Delete`
-2. Restart frontend: `npm run dev`
-3. Check Tailwind config has dark mode
-4. Check system dark mode setting
+**Problem: "Styles look broken"**
+```bash
+Solution: Rebuild CSS
+1. Stop npm dev server (Ctrl+C)
+2. Delete .next folder
+3. Run: npm run dev again
+```
 
----
+### Database Issues
 
-## 📚 Learning Resources
-
-### Documentation
-- [Full API Documentation](./docs/API.md)
-- [Architecture Guide](./docs/ARCHITECTURE.md)
-- [Setup Instructions](./docs/SETUP.md)
-
-### Tutorials
-- Getting Started (3 min video)
-- Chat Basics (5 min video)
-- Forum Usage (5 min video)
-- GitHub Integration (8 min video)
-
-### Examples
-- [Chat with README](./examples/chat_readme.md)
-- [Create GitHub Issue](./examples/create_issue.md)
-- [Ask Knowledge Question](./examples/ask_knowledge.md)
+**Problem: "Cannot connect to PostgreSQL"**
+```bash
+Solution: Check database URL
+1. Verify DATABASE_URL in .env
+2. Check PostgreSQL is running
+3. Verify credentials are correct
+```
 
 ---
 
@@ -700,144 +581,123 @@ git clone https://github.com/Code-Yodha-NOVA/nova-system.git
 cd nova-system
 ```
 
-### 2. Create Feature Branch
+### 2. Create a Feature Branch
 ```bash
-git checkout -b feature/AmazingFeature
+git checkout -b feature/YourFeature
 ```
 
-### 3. Make Changes
+### 3. Make Your Changes
 ```bash
 # Edit files, test locally
-npm run dev  # Frontend
+npm run dev     # Frontend
 python main.py  # Backend
 ```
 
-### 4. Commit & Push
+### 4. Commit and Push
 ```bash
 git add .
-git commit -m "Add AmazingFeature"
-git push origin feature/AmazingFeature
+git commit -m "Add YourFeature"
+git push origin feature/YourFeature
 ```
 
 ### 5. Create Pull Request
-- Go to GitHub
-- Create PR to `main` branch
-- Add description
-- Wait for review
-
-### Development Guidelines
-- Write clean, readable code
-- Add comments for complex logic
-- Test before submitting
-- Follow existing code style
-- Update docs as needed
+- Go to GitHub repository
+- Click "New Pull Request"
+- Describe your changes
+- Submit for review
 
 ---
 
-## 📞 Support & Contact
+## 📞 Support
 
-### Getting Help
-
-- **📧 Email:** support@codeyodha.com
-- **💬 Slack:** [Code Yodha Community](https://codeyodha.slack.com)
-- **🐛 Issues:** [GitHub Issues](https://github.com/Code-Yodha-NOVA/nova-system/issues)
-- **📚 Wiki:** [Full Documentation](https://wiki.codeyodha.com)
-
-### Report a Bug
-
-```bash
-# Create detailed bug report with:
-1. What you were doing
-2. What you expected
-3. What happened instead
-4. Error message/screenshot
-5. Your environment (OS, browser, etc.)
-```
-
-### Feature Requests
-
-```bash
-# Describe the feature:
-1. Problem it solves
-2. Use case example
-3. Expected behavior
-4. Benefits
-```
+- **Email:** support@codeyodha.com
+- **GitHub Issues:** [Report a bug](https://github.com/Code-Yodha-NOVA/nova-system/issues)
+- **Slack:** [Code Yodha Community](https://codeyodha.slack.com)
+- **Documentation:** [Full Docs](https://docs.codeyodha.com)
 
 ---
 
 ## 📄 License
 
-N.O.V.A. is proprietary software developed by **Code Yodha Technologies**.
+This project is proprietary software developed by **Code Yodha Technologies**.
 
-### Usage Rights
-- ✅ Internal team use
-- ✅ Client demonstrations
-- ✅ Educational purposes (with permission)
-- ❌ Commercial redistribution
-- ❌ Public release without permission
-
-For licensing questions: `legal@codeyodha.com`
+For licensing inquiries: `legal@codeyodha.com`
 
 ---
 
 ## 👥 Team
 
-### Creators
 - **Swayam Mankar** - Lead Developer & Architect
 - **Code Yodha Team** - Contributors & Advisors
 
 ### Special Thanks
-- Groq for LLM API
+
+- Groq for LLM infrastructure
 - GitHub for API access
 - ChromaDB team for vector database
-- FastAPI community
-- React community
+- FastAPI and React communities
 
 ---
 
 ## 📊 Project Statistics
 
 ```
-Total Files:      120+
-Lines of Code:    12,500+
-Test Coverage:    75%+
-Documentation:    Complete
-API Endpoints:    25+
-Frontend Pages:   6
-Components:       40+
+Total Lines of Code:    12,500+
+Frontend Components:    40+
+Backend Endpoints:      25+
+API Documentation:      Complete
+Test Coverage:          75%+
+Active Development:     Yes ✓
 ```
 
 ---
 
-## 🎯 Future Vision
+## 🌟 Why N.O.V.A?
 
-**Year 1 Goal:** Be the #1 developer onboarding platform in the industry
+**Before N.O.V.A.:**
+- New developers take 2-3 weeks to onboard
+- Repetitive questions asked multiple times
+- Important information scattered across platforms
+- Context switching between tools
+- Inconsistent guidance
 
-**Long-term Vision:** Every developer, everywhere, has instant access to team knowledge and guidance
+**With N.O.V.A.:**
+- Developers onboard in 3-4 days
+- Instant answers to common questions
+- Centralized knowledge in one app
+- Consistent, AI-powered guidance
+- Better team productivity
 
 ---
 
-## 📅 Changelog
+## 🎯 Vision
+
+**Year 1:** Be the #1 developer onboarding platform in the market
+
+**Long-term:** Every developer, everywhere, has instant access to team knowledge and intelligent guidance
+
+---
+
+## 📅 Recent Updates
 
 ### v2.1.0 (March 18, 2026)
-- ✅ GitHub README fetching
-- ✅ Chat integration improvements
-- ✅ Forum UI redesign
+- ✅ Added GitHub README fetching
+- ✅ Improved chat interface
 - ✅ Dark mode support
-- 🐛 Bug fixes and improvements
+- ✅ Forum UI redesign
+- 🐛 Bug fixes and optimizations
 
 ### v2.0.0 (February 2026)
-- ✅ Full GitHub integration
+- ✅ GitHub integration
 - ✅ LangGraph agent system
 - ✅ ChromaDB knowledge base
-- ✅ Forum with voting
+- ✅ Forum with voting system
 
 ### v1.0.0 (January 2026)
-- ✅ Initial release
+- ✅ Initial MVP release
 - ✅ Chat interface
 - ✅ My Path onboarding
-- ✅ Basic knowledge base
+- ✅ Knowledge base search
 
 ---
 
@@ -845,8 +705,8 @@ Components:       40+
 
 - This README is regularly updated
 - Latest version: March 18, 2026
-- Check `CHANGELOG.md` for detailed updates
-- Join our community for latest news
+- See [CHANGELOG.md](./CHANGELOG.md) for detailed updates
+- Join our community for announcements
 
 ---
 
